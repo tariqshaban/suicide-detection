@@ -6,7 +6,8 @@ It contains the code necessary to implement a pre-trained transformer model to p
 thoughts or not.
 
 The dataset from the [Suicide and Depression Detection](https://www.kaggle.com/datasets/nikhileswarkomati/suicide-watch)
-has been used.
+has been used, which contains a total of 232 thousand instances of nearly perfectly balanced classes (50% non-suicidal,
+50% suicidal).
 
 
 Collaborators 🥇
@@ -26,6 +27,7 @@ No further configuration is required.
 
 Usage
 ------------
+
 * Navigate to the `defining constants` section and specify the following hyperparameters:
     * Sampling fraction, set to 1
     * Validation ratio, set to 0.01
@@ -61,20 +63,21 @@ trained_pipeline(text, truncation=True, max_length=4096)
 
 The following computational resources were used for training the model:
 
-|     | Resource                       |
-|-----|--------------------------------|
-| CPU | Ryzen 5 3600                   |
-| GPU | Nvidia RTX 2060 6GB GDDR6 VRAM |
-| RAM | 24GB DDR4                      |
+|         | Resource                       |
+|:-------:|--------------------------------|
+| **CPU** | Ryzen 5 3600                   |
+| **GPU** | Nvidia RTX 2060 6GB GDDR6 VRAM |
+| **RAM** | 24GB DDR4                      |
 
 > **Note**: The training process on these resources took approximately less than four days. However, it should be noted
-> that the training time for each epoch fluctuated considerably; this is caused by having the resources used for other tasks as well.
+> that the training time for each epoch fluctuated considerably; this is caused by having the resources used for other
+> tasks as well.
 
 Findings
 ------------
 
 > ### Model Performance
-> 
+>
 > ![loss_history.png](assets/output/images/loss_history.png)
 >
 > The lowest loss achieved during the training process was at the first epoch (0.0850). Such a result indicates that the
@@ -83,6 +86,12 @@ Findings
 > ![confusion_matrix.png](assets/output/images/confusion_matrix.png)
 >
 > The model has a relatively higher error rate in discriminating texts that are not suicidal but perceived as one.
+>
+> The testing dataset reported the following evaluation metric results:
+> * Accuracy: 90.94%
+> * Precision: 86.75%
+> * Recall: 96.93%
+> * F1 Score: 91.56%
 
 Notes
 ------------
