@@ -73,6 +73,72 @@ The following computational resources were used for training the model:
 > that the training time for each epoch fluctuated considerably; this is caused by having the resources used for other
 > tasks as well.
 
+Dataset Exploration
+------------
+
+> **Note**: The suicidal classes as positive labels, while the non-suicidal classes as negative labels
+
+> <p>
+>   <img src="assets/output/images/word_length_distribution_for_positive_examples.png" alt="word_length_distribution_for_positive_examples.png" width="45%" />
+>   <img src="assets/output/images/word_length_distribution_for_negative_examples.png" alt="word_length_distribution_for_negative_examples.png" width="45%" />
+> </p>
+>
+> While comparing the word length distribution for each post with respect to the negative examples, the positive
+> examples have significantly more words per post. Both distributions are skewed to the right.
+>
+> <p>
+>   <img src="assets/output/images/sentiment_distribution_for_positive_examples.png" alt="sentiment_distribution_for_positive_examples.png" width="45%" />
+>   <img src="assets/output/images/sentiment_distribution_for_negative_examples.png" alt="sentiment_distribution_for_negative_examples.png" width="45%" />
+> </p>
+>
+> The positive examples have an overwhelming ratio of negative sentiment. Note that having negative sentiment does not
+> necessarily mean that the text has suicidal thoughts.
+>
+> <p>
+>   <img src="assets/output/images/most_common_30_words_for_positive_examples.png" alt="most_common_30_words_for_positive_examples.png" width="45%" />
+>   <img src="assets/output/images/most_common_30_words_for_negative_examples.png" alt="most_common_30_words_for_negative_examples.png" width="45%" />
+> </p>
+>
+> Notice that the positive examples have suicide-related words, while the negative examples have miscellaneous words.
+>
+> <p>
+>   <img src="assets/output/images/top_30_bigrams_for_positive_examples.png" alt="top_30_bigrams_for_positive_examples.png" width="45%" />
+>   <img src="assets/output/images/top_30_bigrams_for_negative_examples.png" alt="top_30_bigrams_for_negative_examples.png" width="45%" />
+> </p>
+>
+> The most common bigram in the positive examples is **commit suicide** and **attempt suicide**.
+>
+> <p>
+>   <img src="assets/output/images/top_30_trigrams_for_positive_examples.png" alt="top_30_trigrams_for_positive_examples.png" width="45%" />
+>   <img src="assets/output/images/top_30_trigrams_for_negative_examples.png" alt="top_30_trigrams_for_negative_examples.png" width="45%" />
+> </p>
+>
+> The most common trigram in the positive examples is **borderline personality disorder**, which is very common among
+> depressed people.
+>
+> <p>
+>   <img src="assets/output/images/word_cloud_positive.png" alt="word_cloud_positive.png" width="45%" />
+>   <img src="assets/output/images/word_cloud_negative.png" alt="word_cloud_negative.png" width="45%" />
+> </p>
+>
+> Another representation for the top **N** words; where the left figure denotes positive examples, and the right figure
+> denotes negative examples.
+
+Model Construction
+------------
+
+The `distilbert-base-uncased` pre-trained model has been used, the model weights and architecture can be accessed
+[here](https://huggingface.co/distilbert-base-uncased).
+
+`distilbert-base-uncased` is the result of this [paper](https://arxiv.org/abs/1910.01108); the authors have trained
+their model based on the same corpus as the original BERT model, which consisted of:
+
+* English Wikipedia
+* Toronto Book Corpus
+
+All the layers of the model were trainable (66,955,010 parameters).
+
+
 Findings
 ------------
 
